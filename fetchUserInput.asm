@@ -9,6 +9,7 @@ extern printf
 extern clearConsole
 extern printBoard
 extern board
+extern ExitProcess
 
 
 
@@ -23,23 +24,28 @@ section .data
 section .text
 
 fetchUserInput: ; void fetchUserInput(char player)
-    push rcx
+    push rbx
+    mov rbx, rcx
     sub rsp, 40
     call printBoard ; reprint board
     add rsp, 40
 failed:
-    pop rcx ; moves player into rcx
-    mov rdx, rcx ; loads player into scond argument of printf
-    push rcx ; pushes rcx for later use
+    mov rdx, rbx ; loads player into second argument of printf
     lea rcx, [rel userPrompt] ; loads up first argument of prinf
     sub rsp, 40
     call printf ; prints user prompt
-    call getchar ; fetch one UTF-8 character from the console
     add rsp, 40
+    read_char:
+    sub  rsp, 40
+    call getchar
+    add rsp, 40
+    cmp rax, 13        ; \r
+    je read_char
+    cmp rax, 10        ; \n
+    je read_char
     cmp rax, 'q'
-    je quit
+    je quit ; jumps to quit when q is detected
     sub rax, '0' ; normalises UTF-8 to decimal
-
     cmp rax, 1
     jb false
     cmp rax, 9
@@ -47,11 +53,12 @@ failed:
 
 true:
     ; changes board index fetched to rcx (1st argument, a char)
-    pop rcx
     lea r10, [rel board]
     sub rax, 1 ; makes numbers indexing friendly
     add r10, rax
-    mov byte [r10], cl ; changes char in the board array with char in the 1st argument
+    cmp byte [r10], ' '
+    jne false
+    mov byte [r10], bl; changes char in the board array with char in the 1st argument
     jmp endif ; makes sure that fail doesnt execute
 
 false:
@@ -64,9 +71,15 @@ false:
     add rsp, 40
     jmp failed ; retry function
 quit:
-    pop rcx
-    mov eax, 1
+    pop rbx
+    sub rsp, 40
+    call clearConsole
+    mov rcx, 0
+    call ExitProcess
+    add rsp, 40
+    xor eax, eax
     ret
 endif:
+    pop rbx
     xor eax, eax
     ret

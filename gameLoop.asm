@@ -1,5 +1,5 @@
 ; NASM, x86_64 Windows Assembly
-; userinput.asm
+; gameLoop.asm
 
 global gameLoop
 
@@ -28,11 +28,26 @@ gameLoop: ; void gameLoop(char firstPlayer, char secondPlayer)
     mov r13, rdx
 repeat:
     sub rsp, 40
-    call printBoard
+
+    call printBoard ; prints board
+
     mov rcx, r12
-    call fetchUserInput
+    call fetchUserInput ; prints board with prompt
+
+    call printBoard ; prints board
+
+    mov rcx, r13
+    call fetchUserInput ; prints board with prompt
+
+    call printBoard
+
     add rsp, 40
-    xor eax, eax
+
+    jmp repeat
+
     pop r13
     pop r12
+
+    mov eax, eax
     ret
+
