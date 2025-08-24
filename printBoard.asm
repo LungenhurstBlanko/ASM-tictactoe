@@ -17,7 +17,7 @@ section .data
 
 section .text
 
-printBoard: ; void printBoard()
+printBoard: ; void printBoard(void)
 
 
   ; push r10

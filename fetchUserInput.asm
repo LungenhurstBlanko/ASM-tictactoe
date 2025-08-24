@@ -9,8 +9,6 @@ extern printf
 extern clearConsole
 extern printBoard
 extern board
-extern player1
-extern player2
 
 
 
@@ -18,7 +16,7 @@ section .rdata
 
     outOfRangePrompt db "Invalid Statement, please choose a valid Number. (1-9)", 10, 0
     debugIndexLog db "%i", 0
-    userPrompt db "Player %d, please cast your move. (1-9)", 10, 0
+    userPrompt db "Player %c, please cast your move. (1-9)", 10, 0
 
 section .data
     
@@ -30,9 +28,12 @@ fetchUserInput: ; void fetchUserInput(char player)
     call printBoard ; reprint board
     add rsp, 40
 failed:
-    lea rcx, [rel userPrompt]
-    lea rdx
+    pop rcx ; moves player into rcx
+    mov rdx, rcx ; loads player into scond argument of printf
+    push rcx ; pushes rcx for later use
+    lea rcx, [rel userPrompt] ; loads up first argument of prinf
     sub rsp, 40
+    call printf ; prints user prompt
     call getchar ; fetch one UTF-8 character from the console
     add rsp, 40
     cmp rax, 'q'

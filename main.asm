@@ -7,6 +7,7 @@ extern getchar
 extern fetchUserInput
 extern printBoard
 extern clearConsole
+extern gameLoop
 
 global main
 global board
@@ -27,5 +28,10 @@ section .text
 
 main:
 return:
+    sub rsp, 40
+    mov rcx, 'X'
+    mov rdx, 'O'
+    call gameLoop
+    add rsp, 40
     xor eax, eax
     ret

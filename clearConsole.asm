@@ -15,7 +15,7 @@ clearScreen:
 
 section .text
 
-clearConsole: ; void clearConsole()
+clearConsole: ; void clearConsole(void)
     lea rcx, [rel format]
     lea rdx, [rel clearScreen] ; load string pointers into registers
     sub rsp, 40 ; make windows abi shadow space
