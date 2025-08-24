@@ -29,8 +29,10 @@ section .text
 main:
 return:
     sub rsp, 40
-    mov rcx, 'X'
-    mov rdx, 'O'
+    lea rcx, [rel player1]
+    lea rdx, [rel player2]
+    mov cl, byte [rcx]
+    mov dl, byte [rdx]
     call gameLoop
     add rsp, 40
     xor eax, eax

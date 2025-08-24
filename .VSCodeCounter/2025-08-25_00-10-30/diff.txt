@@ -1,0 +1,38 @@
+Date : 2025-08-25 00:10:30
+Directory : e:\vs_studio\ASM-tictactoe
+Total : 11 files,  48 codes, 3 comments, 23 blanks, all 74 lines
+
+Languages
++------------------+------------+------------+------------+------------+------------+
+| language         | files      | code       | comment    | blank      | total      |
++------------------+------------+------------+------------+------------+------------+
+| x86-x64 Assembly |          9 |         48 |          3 |         23 |         74 |
+| Batch            |          2 |          0 |          0 |          0 |          0 |
++------------------+------------+------------+------------+------------+------------+
+
+Directories
++-----------------------------------------------+------------+------------+------------+------------+------------+
+| path                                          | files      | code       | comment    | blank      | total      |
++-----------------------------------------------+------------+------------+------------+------------+------------+
+| .                                             |          6 |        217 |         14 |         77 |        308 |
+| c:\                                           |          5 |       -169 |        -11 |        -54 |       -234 |
+| c:\tictactoe                                  |          5 |       -169 |        -11 |        -54 |       -234 |
++-----------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-----------------------------------------------+------------------+------------+------------+------------+------------+
+| filename                                      | language         | code       | comment    | blank      | total      |
++-----------------------------------------------+------------------+------------+------------+------------+------------+
+| c:\tictactoe\assemble.bat                     | Batch            |        -11 |          0 |         -5 |        -16 |
+| c:\tictactoe\clearConsole.asm                 | x86-x64 Assembly |        -16 |         -2 |         -8 |        -26 |
+| c:\tictactoe\fetchUserInput.asm               | x86-x64 Assembly |        -49 |         -3 |        -11 |        -63 |
+| c:\tictactoe\main.asm                         | x86-x64 Assembly |        -31 |         -2 |         -8 |        -41 |
+| c:\tictactoe\printBoard.asm                   | x86-x64 Assembly |        -62 |         -4 |        -22 |        -88 |
+| e:\vs_studio\ASM-tictactoe\assemble.bat       | Batch            |         11 |          0 |          5 |         16 |
+| e:\vs_studio\ASM-tictactoe\clearConsole.asm   | x86-x64 Assembly |         16 |          2 |          8 |         26 |
+| e:\vs_studio\ASM-tictactoe\fetchUserInput.asm | x86-x64 Assembly |         70 |          3 |         12 |         85 |
+| e:\vs_studio\ASM-tictactoe\gameLoop.asm       | x86-x64 Assembly |         30 |          2 |         22 |         54 |
+| e:\vs_studio\ASM-tictactoe\main.asm           | x86-x64 Assembly |         28 |          2 |          8 |         38 |
+| e:\vs_studio\ASM-tictactoe\printBoard.asm     | x86-x64 Assembly |         62 |          5 |         22 |         89 |
+| Total                                         |                  |         48 |          3 |         23 |         74 |
++-----------------------------------------------+------------------+------------+------------+------------+------------+
