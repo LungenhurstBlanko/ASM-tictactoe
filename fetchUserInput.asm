@@ -80,7 +80,7 @@ true:
 
 false:
     sub rsp, 40 
-    call printboard
+    call printBoard
     add rsp, 40
 
     lea rcx, [rel outOfRangePrompt]
