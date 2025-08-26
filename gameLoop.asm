@@ -10,14 +10,6 @@ extern board
 extern printf
 
 
-section .rdata
-
-
-section .bss
-
-
-section .data
-
 
 section .text
 
